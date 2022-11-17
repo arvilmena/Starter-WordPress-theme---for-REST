@@ -1,0 +1,16 @@
+{
+  "name": "arvil-wp-starter-rest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install"
+  },
+  "author": "Arvil Mena",
+  "license": "ISC",
+  "dependencies": {
+    "husky": "^8.0.2",
+    "lint-staged": "^13.0.3"
+  }
+}

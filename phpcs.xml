@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<ruleset name="Example Project">
+
+	<description>A custom set of rules to check for a WPized WordPress project</description>
+
+	<arg name="colors"/>
+	<arg value="ps"/>
+
+	<!-- Check up to 8 files simultanously. -->
+	<arg name="parallel" value="8"/>
+	<arg name="report-width" value="120"/>
+
+	<!-- Only check the PHP files. -->
+	<arg name="extensions" value="php"/>
+
+	<file>.</file>
+
+	<config name="installed_paths" value="vendor/wp-coding-standards/wpcs" />
+	<config name="minimum_supported_wp_version" value="5.0"/>
+
+	<exclude-pattern>/bin/*</exclude-pattern>
+	<exclude-pattern>/vendor/*</exclude-pattern>
+	<exclude-pattern>/node_modules/*</exclude-pattern>
+
+	<rule ref="WordPress">
+		<exclude name="WordPress.Files.FileName" />
+	</rule>
+	<rule ref="WordPress-Core" />
+	<rule ref="WordPress-Docs" />
+	<rule ref="WordPress-Extra" />
+
+	<rule ref="WordPress.NamingConventions.ValidHookName.UseUnderscores">
+		<exclude name="WordPress.NamingConventions.ValidHookName.UseUnderscores" />
+	</rule>
+
+	<rule ref="WordPress.Security.NonceVerification.Recommended">
+		<exclude name="WordPress.Security.NonceVerification.Recommended" />
+	</rule>
+
+	<!-- We're using SymfonyAsset ManifestJSON strategy to version our assets. -->
+	<rule ref="WordPress.WP.EnqueuedResourceParameters.MissingVersion">
+		<exclude name="WordPress.WP.EnqueuedResourceParameters.MissingVersion" />
+	</rule>
+
+	<!-- Don't warn me helping the translators. -->
+	<rule ref="WordPress.WP.I18n.MissingTranslatorsComment">
+		<exclude name="WordPress.WP.I18n.MissingTranslatorsComment" />
+	</rule>
+
+	<!-- Sometimes you just want to remove it by commenting them -->
+	<rule ref="Squiz.PHP.CommentedOutCode">
+		<exclude name="Squiz.PHP.CommentedOutCode" />
+	</rule>
+
+	<!-- Comments are just lies waiting to happen ;) -->
+	<rule ref="Squiz.Commenting">
+		<exclude name="Squiz.Commenting.FunctionComment.Missing" />
+		<exclude name="Squiz.Commenting.ClassComment.Missing" />
+		<exclude name="Squiz.Commenting.FunctionComment.WrongStyle" />
+		<exclude name="Squiz.Commenting.InlineComment.InvalidEndChar" />
+	</rule>
+
+	<rule ref="Generic.Commenting">
+		<exclude name="Generic.Commenting.DocComment.ShortNotCapital" />
+		<exclude name="Generic.Commenting.DocComment.LongNotCapital" />
+		<exclude name="Generic.Commenting.DocComment.MissingShort" />
+	</rule>
+
+	<rule ref="Generic.Arrays.DisallowShortArraySyntax.Found">
+		<exclude name="Generic.Arrays.DisallowShortArraySyntax.Found" />
+	</rule>
+
+	<!-- I want underscores though -->
+	<rule ref="PSR2.Methods.MethodDeclaration.Underscore">
+		<exclude name="PSR2.Methods.MethodDeclaration.Underscore" />
+	</rule>
+	<rule ref="Generic.WhiteSpace.ArbitraryParenthesesSpacing">
+		<exclude name="Generic.WhiteSpace.ArbitraryParenthesesSpacing.FoundEmpty" />
+	</rule>
+
+</ruleset>
